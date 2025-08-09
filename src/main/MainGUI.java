@@ -15,27 +15,14 @@ public class MainGUI extends JFrame {
 
 	private JFrame frame;
     private JPanel contentPane;
+    private HotelController hotelController;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					MainGUI window = new MainGUI();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the application.
 	 */
-	public MainGUI() {
+	public MainGUI(HotelController hotelController) {
+		this.hotelController =hotelController;
 		initialize();
 	}
 
@@ -53,7 +40,7 @@ public class MainGUI extends JFrame {
         JButton btnAdmin = new JButton("ADMIN");
         btnAdmin.addActionListener(new ActionListener() { // Open MainAdminGUI
             public void actionPerformed(ActionEvent e) {
-                MainAdminGUI adminGUI = new MainAdminGUI();
+                MainAdminGUI adminGUI = new MainAdminGUI(hotelController);
                 adminGUI.setVisible(true);
                 dispose();
             }
@@ -64,7 +51,7 @@ public class MainGUI extends JFrame {
         JButton btnCustomer = new JButton("CUSTOMER");
         btnCustomer.addActionListener(new ActionListener() { // MainCustomerGUI
             public void actionPerformed(ActionEvent e) {
-            	MainCustomerGUI customerGUI = new MainCustomerGUI();
+            	MainCustomerGUI customerGUI = new MainCustomerGUI(hotelController);
                 customerGUI.setVisible(true);
                 dispose();
             }

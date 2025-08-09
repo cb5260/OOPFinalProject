@@ -21,27 +21,12 @@ public class SearchGUI extends JFrame {
     private JTextField txtSearch;
     private JList list;
     private JButton btnCancel;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					SearchGUI window = new SearchGUI();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
+    private HotelController hotelController;
 	/**
 	 * Create the application.
 	 */
-	public SearchGUI() {
+	public SearchGUI(HotelController hotelController) {
+		this.hotelController = hotelController;
 		initialize();
 	}
 
@@ -81,7 +66,7 @@ public class SearchGUI extends JFrame {
 		btnCancel = new JButton("Cancel");
 		btnCancel.addActionListener(new ActionListener() {
 		    public void actionPerformed(ActionEvent e) { //Open MainAdminGUI
-		        MainAdminGUI adminGUI = new MainAdminGUI();
+		        MainAdminGUI adminGUI = new MainAdminGUI(hotelController);
 		        adminGUI.setVisible(true);
 		        dispose();
 		    }

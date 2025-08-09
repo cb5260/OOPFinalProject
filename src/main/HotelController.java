@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.List;
 
 public class HotelController {
-    private static RoomDB roomDB;
+    private RoomDB roomDB;
 
     public HotelController() {
         this.roomDB = new RoomDB();
@@ -18,7 +18,7 @@ public class HotelController {
     	for (int i = 0; i < 4; i++) {
     		roomDB.addRoom(new Room("double", 75));
 		}
-    	for (int i = 0; i < 3; i++) {
+    	for (int i = 0; i < 2; i++) {
     		roomDB.addRoom(new Room("triple", 100));
 		}
     }
@@ -37,8 +37,8 @@ public class HotelController {
     }
 
 
-    public void editRoom(int roomId, String type, double price, boolean isAva, String name) {
-        roomDB.editRoom(roomId, type, price, isAva, name);
+    public boolean editRoom(int roomId, String type, double price, boolean isAva, String name) {
+        return roomDB.editRoom(roomId, type, price, isAva, name);
     }
 
     public List<Room> getAllRooms() {

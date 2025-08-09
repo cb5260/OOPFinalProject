@@ -37,9 +37,19 @@ public class RoomDB {
     }
 
 
-    public void editRoom(int roomId, String type, double price, boolean  isAvailable, String customerName) {
-            //TODO: ALOT OF SETTERES 
+    public boolean editRoom(int roomId, String type, double price, boolean isAvailable, String customerName) {
+        Room roomToEdit = getRoom(roomId);
+        
+        if (roomToEdit != null) {
+                roomToEdit.setType(type); 
+                roomToEdit.setPrice(price);
+                roomToEdit.setAvailable(isAvailable);
+                roomToEdit.setCustomerName(customerName);
+                return true;
+        }
+        return false;
     }
+
 
     public List<Room> getAllRooms() {
         return new ArrayList<>(rooms);

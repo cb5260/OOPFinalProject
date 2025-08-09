@@ -20,27 +20,13 @@ public class MainCustomerGUI extends JFrame {
     private JPanel contentPane;
     private JTextField txtName;
     private JTextField txtRoomType;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					MainCustomerGUI window = new MainCustomerGUI();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+    private HotelController hotelController;
 
 	/**
 	 * Create the application.
 	 */
-	public MainCustomerGUI() {
+	public MainCustomerGUI(HotelController hotelController) {
+		this.hotelController=hotelController;
 		initialize();
 	}
 
@@ -89,7 +75,8 @@ public class MainCustomerGUI extends JFrame {
         JButton btnLogout = new JButton("LogOut");
         btnLogout.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) { //Open MainGUI
-                MainGUI mainGUI = new MainGUI();
+                
+				MainGUI mainGUI = new MainGUI(hotelController);
                 mainGUI.setVisible(true);
                 dispose();
             }

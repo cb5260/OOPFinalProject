@@ -6,6 +6,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.util.List;
@@ -16,21 +17,9 @@ public class MainAdminGUI extends JFrame {
     private JList<String> roomList;
     private HotelController hotelController;
 
-    public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    MainAdminGUI window = new MainAdminGUI();
-                    window.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
 
-    public MainAdminGUI() {
-        this.hotelController = new HotelController(); 
+    public MainAdminGUI(HotelController hotelController) {
+        this.hotelController = hotelController; 
         initialize();
         loadRooms(); 
     }
@@ -47,21 +36,28 @@ public class MainAdminGUI extends JFrame {
         roomList.setBounds(18, 30, 278, 209);
         contentPane.add(roomList);
         
+        // Go to EDIT
+        
         JButton btnEdit = new JButton("Edit");
         btnEdit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                EditGUI editGUI = new EditGUI();
-                editGUI.setVisible(true);
-                dispose();
+                int i = roomList.getSelectedIndex();
+                if (i != -1) {
+                    EditGUI editGUI = new EditGUI(hotelController.getAllRooms().get(i), hotelController);
+                    editGUI.setVisible(true);
+                    dispose();
+                } else {
+                    JOptionPane.showMessageDialog(null, "select a room to edit");
+                }
             }
         });
         btnEdit.setBounds(308, 49, 117, 29);
         contentPane.add(btnEdit);
-        
+        // END EDIT
         JButton btnSearch = new JButton("Search");
         btnSearch.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                SearchGUI searchGUI = new SearchGUI();
+                SearchGUI searchGUI = new SearchGUI(hotelController);
                 searchGUI.setVisible(true);
                 dispose();
             }
@@ -72,7 +68,7 @@ public class MainAdminGUI extends JFrame {
         JButton btnLogout = new JButton("LogOut");
         btnLogout.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                MainGUI mainGUI = new MainGUI();
+                MainGUI mainGUI = new MainGUI(hotelController);
                 mainGUI.setVisible(true);
                 dispose();
             }
