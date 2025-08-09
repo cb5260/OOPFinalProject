@@ -3,6 +3,7 @@ package main;
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
@@ -36,6 +37,9 @@ public class MainAdminGUI extends JFrame {
         roomList.setBounds(18, 30, 278, 209);
         contentPane.add(roomList);
         
+        JScrollPane scrollPane = new JScrollPane(roomList);
+        scrollPane.setBounds(18, 30, 278, 209); // Same bounds as your original list
+        contentPane.add(scrollPane);
         // Go to EDIT
         
         JButton btnEdit = new JButton("Edit");
@@ -81,7 +85,7 @@ public class MainAdminGUI extends JFrame {
         List<Room> rooms = hotelController.getAllRooms();
         DefaultListModel<String> lm = new DefaultListModel<>();
         for (Room room : rooms) {
-        	lm.addElement(room.toString()); // Using Room's toString()
+        	lm.addElement(room.toString());
         }
         roomList.setModel(lm);
     }

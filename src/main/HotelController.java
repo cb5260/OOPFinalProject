@@ -12,13 +12,13 @@ public class HotelController {
     }
 
     private void createROoms() {
-    	for (int i = 0; i < 5; i++) {
+    	for (int i = 0; i < 7; i++) {
     		roomDB.addRoom(new Room("single", 60));
 		}
-    	for (int i = 0; i < 4; i++) {
+    	for (int i = 0; i < 5; i++) {
     		roomDB.addRoom(new Room("double", 75));
 		}
-    	for (int i = 0; i < 2; i++) {
+    	for (int i = 0; i < 3; i++) {
     		roomDB.addRoom(new Room("triple", 100));
 		}
     }
