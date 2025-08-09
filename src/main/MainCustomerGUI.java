@@ -4,14 +4,17 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 
 import java.awt.BorderLayout;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JList;
 import java.awt.event.ActionListener;
+import java.util.List;
 import java.awt.event.ActionEvent;
 
 public class MainCustomerGUI extends JFrame {
@@ -21,6 +24,7 @@ public class MainCustomerGUI extends JFrame {
     private JTextField txtName;
     private JTextField txtRoomType;
     private HotelController hotelController;
+    private JList list;
 
 	/**
 	 * Create the application.
@@ -28,6 +32,7 @@ public class MainCustomerGUI extends JFrame {
 	public MainCustomerGUI(HotelController hotelController) {
 		this.hotelController=hotelController;
 		initialize();
+		loadRooms();
 	}
 
 	/**
@@ -63,14 +68,22 @@ public class MainCustomerGUI extends JFrame {
         btnBook.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		// TODO: BOOKING
+        		
+        		
+        		
         	}
         });
         btnBook.setBounds(277, 34, 117, 29);
         contentPane.add(btnBook);
         
-        JList list = new JList();
+        
+        list = new JList();
         list.setBounds(33, 92, 384, 119);
         contentPane.add(list);
+        
+        JScrollPane scrollPane = new JScrollPane(list);
+        scrollPane.setBounds(33, 92, 384, 119); // Same bounds as your original list
+        contentPane.add(scrollPane);
         
         JButton btnLogout = new JButton("LogOut");
         btnLogout.addActionListener(new ActionListener() {
@@ -85,5 +98,13 @@ public class MainCustomerGUI extends JFrame {
         contentPane.add(btnLogout);
 
 	}
+    private void loadRooms() {
+        List<Room> rooms = hotelController.getAllRooms();
+        DefaultListModel<String> lm = new DefaultListModel<>();
+        for (Room room : rooms) {
+        	lm.addElement(room.toString());
+        }
+        list.setModel(lm);
+    }
 
 }

@@ -38,7 +38,7 @@ public class MainAdminGUI extends JFrame {
         contentPane.add(roomList);
         
         JScrollPane scrollPane = new JScrollPane(roomList);
-        scrollPane.setBounds(18, 30, 278, 209); // Same bounds as your original list
+        scrollPane.setBounds(18, 30, 278, 209); 
         contentPane.add(scrollPane);
         // Go to EDIT
         

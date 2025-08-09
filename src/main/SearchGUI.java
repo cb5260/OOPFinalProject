@@ -17,6 +17,7 @@ import java.awt.event.ActionListener;
 import java.util.List;
 import java.awt.event.ActionEvent;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 
 public class SearchGUI extends JFrame {
 
@@ -26,6 +27,7 @@ public class SearchGUI extends JFrame {
     private JList list;
     private JButton btnCancel;
     private HotelController hotelController;
+    JRadioButton btnAvailability;
 	/**
 	 * Create the application.
 	 */
@@ -55,12 +57,23 @@ public class SearchGUI extends JFrame {
 		btnSearch.addActionListener(new ActionListener() {
 		    public void actionPerformed(ActionEvent e) {
 		        // TODO: SEARCH/FILTER
+		    	List<Room> rooms = hotelController.searchRooms(txtSearch.getText().trim(),btnAvailability.isSelected());
+		    	DefaultListModel<String> lm = new DefaultListModel<>();
+		        for (Room room : rooms) {
+		        	lm.addElement(room.toString()); 
+		        }
+		        list.setModel(lm);
+		        if (rooms.isEmpty()) {
+		        	JOptionPane.showMessageDialog (null, "no result for room type:"+ txtSearch.getText());
+		            
+		        }
+
 		    }
 		});
 		btnSearch.setBounds(261, 16, 162, 29);
 		contentPane.add(btnSearch);
 
-		JRadioButton btnAvailability = new JRadioButton("Availability");
+		btnAvailability = new JRadioButton("Availability");
 		btnAvailability.setBounds(152, 17, 141, 23);
 		contentPane.add(btnAvailability);
 

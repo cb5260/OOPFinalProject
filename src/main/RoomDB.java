@@ -27,12 +27,21 @@ public class RoomDB {
     
     public List<Room> search(String type, boolean isAva) {
     	//TODO
-    	
-		return null;
+        List<Room> result = new ArrayList<>();
+        
+        for (Room room : rooms) {
+            boolean t1 = (type == null) || room.getType().equalsIgnoreCase(type);
+            
+            if (t1 && (room.isAvailable()==isAva)) result.add(room);
+        }
+        
+        return result;
+
     }
     
     public int getNumbAva () {
     	// TODO: get number available by type
+    	// dont need anymore
 		return 0;
     }
 
