@@ -13,6 +13,8 @@ import javax.swing.JLabel;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
+
 import java.awt.event.ActionListener;
 import java.util.List;
 import java.awt.event.ActionEvent;
@@ -68,8 +70,22 @@ public class MainCustomerGUI extends JFrame {
         btnBook.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		// TODO: BOOKING
-        		
-        		
+        		List<Room> rooms =hotelController.searchRooms(txtRoomType.getText().trim(), true);
+        		if (rooms.isEmpty()) {
+		        	JOptionPane.showMessageDialog (null, "no availability for room type:"+ txtRoomType.getText());
+		        }else {
+		        	rooms.get(0).setCustomerName(txtName.getText());
+		        	rooms.get(0).setAvailable(false);
+		        	JOptionPane.showMessageDialog (null, "your room number is: "+rooms.get(0).getRoomId());
+		        	
+		        	rooms = hotelController.getAllRooms();
+		            DefaultListModel<String> lm = new DefaultListModel<>();
+		            for (Room room : rooms) {
+		            	lm.addElement(room.toString());
+		            }
+		            list.setModel(lm);
+		        }
+
         		
         	}
         });
