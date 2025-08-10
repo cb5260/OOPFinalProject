@@ -26,6 +26,12 @@ public class EditGUI extends JFrame {
     private JTextField txtPricing;
     private JRadioButton btnAvailability;
     private HotelController hotelController;
+    private JButton btnSave;
+    private JLabel lblRoomId;
+    private JLabel lblType;
+    private JLabel lblCustomerName;
+    private JLabel lblPricing;
+    private JButton btnCancel;
 
 
 
@@ -87,23 +93,23 @@ public class EditGUI extends JFrame {
 	    btnAvailability.setBounds(172, 65, 141, 23);
 	    contentPane.add(btnAvailability);
 	    
-	    JLabel lblRoomId = new JLabel("Room ID");
+	    lblRoomId = new JLabel("Room ID");
 	    lblRoomId.setBounds(86, 32, 61, 16);
 	    contentPane.add(lblRoomId);
 	    
-	    JLabel lblType = new JLabel("Type");
+	    lblType = new JLabel("Type");
 	    lblType.setBounds(86, 101, 61, 16);
 	    contentPane.add(lblType);
 	    
-	    JLabel lblCustomerName = new JLabel("Customer name");
+	    lblCustomerName = new JLabel("Customer name");
 	    lblCustomerName.setBounds(41, 144, 124, 16);
 	    contentPane.add(lblCustomerName);
 	    
-	    JLabel lblPricing = new JLabel("Pricing");
+	    lblPricing = new JLabel("Pricing");
 	    lblPricing.setBounds(86, 182, 43, 16);
 	    contentPane.add(lblPricing);
 	    
-	    JButton btnCancel = new JButton("Cancel");
+	    btnCancel = new JButton("Cancel");
 	    btnCancel.addActionListener(new ActionListener() {
 	        public void actionPerformed(ActionEvent e) { // open adminGUI
 	        	MainAdminGUI adminGUI = new MainAdminGUI(hotelController);
@@ -114,7 +120,7 @@ public class EditGUI extends JFrame {
 	    btnCancel.setBounds(88, 225, 117, 29);
 	    contentPane.add(btnCancel);
 	    
-	    JButton btnSave = new JButton("Save");
+	    btnSave = new JButton("Save");
 	    btnSave.addActionListener(new ActionListener() {
 	        public void actionPerformed(ActionEvent e) { // open adminGUI
 	        	try{

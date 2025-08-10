@@ -16,6 +16,8 @@ public class MainGUI extends JFrame {
 	private JFrame frame;
     private JPanel contentPane;
     private HotelController hotelController;
+    private JButton btnAdmin;
+    private JButton btnCustomer;
 
 
 	/**
@@ -37,7 +39,7 @@ public class MainGUI extends JFrame {
         setContentPane(contentPane);
         contentPane.setLayout(null);
         
-        JButton btnAdmin = new JButton("ADMIN");
+        btnAdmin = new JButton("ADMIN");
         btnAdmin.addActionListener(new ActionListener() { // Open MainAdminGUI
             public void actionPerformed(ActionEvent e) {
                 MainAdminGUI adminGUI = new MainAdminGUI(hotelController);
@@ -48,7 +50,7 @@ public class MainGUI extends JFrame {
         btnAdmin.setBounds(166, 61, 117, 29);
         contentPane.add(btnAdmin);
         
-        JButton btnCustomer = new JButton("CUSTOMER");
+        btnCustomer = new JButton("CUSTOMER");
         btnCustomer.addActionListener(new ActionListener() { // MainCustomerGUI
             public void actionPerformed(ActionEvent e) {
             	MainCustomerGUI customerGUI = new MainCustomerGUI(hotelController);

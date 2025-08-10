@@ -27,6 +27,11 @@ public class MainCustomerGUI extends JFrame {
     private JTextField txtRoomType;
     private HotelController hotelController;
     private JList list;
+    private JLabel lblName;
+    private JLabel lblRoomType;
+    private JButton btnBook;
+    private  JScrollPane scrollPane;
+    private JButton btnQuit;
 
 	/**
 	 * Create the application.
@@ -58,14 +63,14 @@ public class MainCustomerGUI extends JFrame {
         txtRoomType.setBounds(120, 54, 130, 26);
         contentPane.add(txtRoomType);
         
-        JLabel lblName = new JLabel("Name");
+        lblName = new JLabel("Name");
         lblName.setBounds(26, 21, 61, 16);
         contentPane.add(lblName);
         
-        JLabel lblRoomType = new JLabel("Room Type");
+        lblRoomType = new JLabel("Room Type");
         lblRoomType.setBounds(26, 59, 82, 16);
         contentPane.add(lblRoomType);
-        JButton btnBook = new JButton("Book");
+        btnBook = new JButton("Book");
         btnBook.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		// TODO: BOOKING
@@ -96,11 +101,11 @@ public class MainCustomerGUI extends JFrame {
         list.setBounds(33, 92, 384, 119);
         contentPane.add(list);
         
-        JScrollPane scrollPane = new JScrollPane(list);
+        scrollPane = new JScrollPane(list);
         scrollPane.setBounds(33, 92, 384, 119); // Same bounds as your original list
         contentPane.add(scrollPane);
         
-        JButton btnQuit = new JButton("Quit");
+        btnQuit = new JButton("Quit");
         btnQuit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) { //Open MainGUI
                 

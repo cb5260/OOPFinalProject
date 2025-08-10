@@ -28,6 +28,8 @@ public class SearchGUI extends JFrame {
     private JButton btnCancel;
     private HotelController hotelController;
     private JRadioButton btnAvailability;
+    private JButton btnSearch;
+    private JScrollPane scrollPane;
 	/**
 	 * Create the application.
 	 */
@@ -53,7 +55,7 @@ public class SearchGUI extends JFrame {
 		contentPane.add(txtSearch);
 		txtSearch.setColumns(10);
 
-		JButton btnSearch = new JButton("Search by Room Type");
+		btnSearch = new JButton("Search by Room Type");
 		btnSearch.addActionListener(new ActionListener() {
 		    public void actionPerformed(ActionEvent e) {
 		        // TODO: SEARCH/FILTER
@@ -82,7 +84,7 @@ public class SearchGUI extends JFrame {
 		list.setBounds(22, 54, 401, 168);
 		contentPane.add(list);
 		
-		JScrollPane scrollPane = new JScrollPane(list);
+		scrollPane = new JScrollPane(list);
 	    scrollPane.setBounds(22, 54, 401, 168); 
 	    contentPane.add(scrollPane);
 

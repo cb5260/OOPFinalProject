@@ -8,10 +8,10 @@ public class HotelController {
 
     public HotelController() {
         this.roomDB = new RoomDB();
-        createROoms(); // a set number of rooms
+        createRooms(); // a set number of rooms
     }
 
-    private void createROoms() {
+    private void createRooms() {
     	for (int i = 0; i < 7; i++) {
     		roomDB.addRoom(new Room("single", 60));
 		}

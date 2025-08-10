@@ -18,6 +18,9 @@ public class MainAdminGUI extends JFrame {
     private JPanel contentPane;
     private JList<String> roomList;
     private HotelController hotelController;
+    private JScrollPane scrollPane;
+    private JButton btnSearch;
+    private JButton btnQuit;
 
 
     public MainAdminGUI(HotelController hotelController) {
@@ -38,7 +41,7 @@ public class MainAdminGUI extends JFrame {
         roomList.setBounds(18, 30, 278, 209);
         contentPane.add(roomList);
         
-        JScrollPane scrollPane = new JScrollPane(roomList);
+        scrollPane = new JScrollPane(roomList);
         scrollPane.setBounds(18, 30, 278, 209); 
         contentPane.add(scrollPane);
         // Go to EDIT
@@ -59,7 +62,7 @@ public class MainAdminGUI extends JFrame {
         btnEdit.setBounds(308, 49, 117, 29);
         contentPane.add(btnEdit);
         // END EDIT
-        JButton btnSearch = new JButton("Search");
+        btnSearch = new JButton("Search");
         btnSearch.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 SearchGUI searchGUI = new SearchGUI(hotelController);
@@ -70,7 +73,7 @@ public class MainAdminGUI extends JFrame {
         btnSearch.setBounds(308, 112, 117, 29);
         contentPane.add(btnSearch);
         
-        JButton btnQuit = new JButton("Quit");
+        btnQuit = new JButton("Quit");
         btnQuit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 MainGUI mainGUI = new MainGUI(hotelController);
