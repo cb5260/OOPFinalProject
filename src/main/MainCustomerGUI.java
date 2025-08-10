@@ -65,7 +65,6 @@ public class MainCustomerGUI extends JFrame {
         JLabel lblRoomType = new JLabel("Room Type");
         lblRoomType.setBounds(26, 59, 82, 16);
         contentPane.add(lblRoomType);
-        
         JButton btnBook = new JButton("Book");
         btnBook.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {

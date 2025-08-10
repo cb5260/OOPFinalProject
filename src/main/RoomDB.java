@@ -39,12 +39,6 @@ public class RoomDB {
 
     }
     
-    public int getNumbAva () {
-    	// TODO: get number available by type
-    	// dont need anymore
-		return 0;
-    }
-
 
     public boolean editRoom(int roomId, String type, double price, boolean isAvailable, String customerName) {
         Room roomToEdit = getRoom(roomId);
