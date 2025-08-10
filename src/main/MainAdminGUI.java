@@ -1,5 +1,6 @@
 package main;
 
+import java.awt.Component;
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -69,16 +70,16 @@ public class MainAdminGUI extends JFrame {
         btnSearch.setBounds(308, 112, 117, 29);
         contentPane.add(btnSearch);
         
-        JButton btnLogout = new JButton("LogOut");
-        btnLogout.addActionListener(new ActionListener() {
+        JButton btnQuit = new JButton("Quit");
+        btnQuit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 MainGUI mainGUI = new MainGUI(hotelController);
                 mainGUI.setVisible(true);
                 dispose();
             }
         });
-        btnLogout.setBounds(308, 178, 117, 29);
-        contentPane.add(btnLogout);
+        btnQuit.setBounds(308, 178, 117, 29);
+        contentPane.add(btnQuit);
     }
 
     private void loadRooms() {

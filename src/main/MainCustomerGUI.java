@@ -101,8 +101,8 @@ public class MainCustomerGUI extends JFrame {
         scrollPane.setBounds(33, 92, 384, 119); // Same bounds as your original list
         contentPane.add(scrollPane);
         
-        JButton btnLogout = new JButton("LogOut");
-        btnLogout.addActionListener(new ActionListener() {
+        JButton btnQuit = new JButton("Quit");
+        btnQuit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) { //Open MainGUI
                 
 				MainGUI mainGUI = new MainGUI(hotelController);
@@ -110,8 +110,8 @@ public class MainCustomerGUI extends JFrame {
                 dispose();
             }
         });
-        btnLogout.setBounds(166, 223, 117, 29);
-        contentPane.add(btnLogout);
+        btnQuit.setBounds(166, 223, 117, 29);
+        contentPane.add(btnQuit);
 
 	}
     private void loadRooms() {

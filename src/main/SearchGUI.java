@@ -27,7 +27,7 @@ public class SearchGUI extends JFrame {
     private JList list;
     private JButton btnCancel;
     private HotelController hotelController;
-    JRadioButton btnAvailability;
+    private JRadioButton btnAvailability;
 	/**
 	 * Create the application.
 	 */

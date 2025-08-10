@@ -1,7 +1,7 @@
 package main;
 
 public class Room {
-	static int totalnumber=0;
+	private static int totalnumber=0;
     private int roomId;
     private String type;
     private double price;
