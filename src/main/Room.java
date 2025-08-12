@@ -28,7 +28,7 @@ public class Room {
     public void setCustomerName(String customerName) { this.customerName = customerName; }
 
     @Override
-    public String toString() {
+    public String toString() { 
         return "Room " + roomId + " (" + type + ") - $" + price + 
                " ** " + (isAvailable ? "Available" : "Booked by: " + customerName);
     }
