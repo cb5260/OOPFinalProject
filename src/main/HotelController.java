@@ -24,7 +24,6 @@ public class HotelController {
     }
 
     public void bookRoom() {
-    	//TODO, by type only
     	
     }
 

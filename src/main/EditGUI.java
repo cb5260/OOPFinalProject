@@ -47,7 +47,7 @@ public class EditGUI extends JFrame {
 	}
 
 	private void addData() {
-		// TODO Auto-generated method stub
+		
         txtRoomId.setText(String.valueOf(currentRoom.getRoomId()));
         txtType.setText(currentRoom.getType().toString());
         txtCustomerName.setText(currentRoom.getCustomerName() != null ? 

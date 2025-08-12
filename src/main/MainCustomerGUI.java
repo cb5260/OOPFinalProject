@@ -73,7 +73,7 @@ public class MainCustomerGUI extends JFrame {
         btnBook = new JButton("Book");
         btnBook.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		// TODO: BOOKING
+
         		List<Room> rooms =hotelController.searchRooms(txtRoomType.getText().trim(), true);
         		if (rooms.isEmpty()) {
 		        	JOptionPane.showMessageDialog (null, "no availability for room type:"+ txtRoomType.getText());

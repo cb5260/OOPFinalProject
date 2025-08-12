@@ -58,7 +58,7 @@ public class SearchGUI extends JFrame {
 		btnSearch = new JButton("Search by Room Type");
 		btnSearch.addActionListener(new ActionListener() {
 		    public void actionPerformed(ActionEvent e) {
-		        // TODO: SEARCH/FILTER
+
 		    	List<Room> rooms = hotelController.searchRooms(txtSearch.getText().trim(),btnAvailability.isSelected());
 		    	DefaultListModel<String> lm = new DefaultListModel<>();
 		        for (Room room : rooms) {

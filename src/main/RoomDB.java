@@ -26,7 +26,7 @@ public class RoomDB {
     }
     
     public List<Room> search(String type, boolean isAva) {
-    	//TODO
+
         List<Room> result = new ArrayList<>();
         
         for (Room room : rooms) {
